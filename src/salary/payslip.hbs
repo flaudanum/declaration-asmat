@@ -7,9 +7,10 @@
     <title>Document</title>
     <style>
         .section {
-            text-decoration: underline;
+            background-color: #7e7e7f;
+            color: white;
             font-weight: bold;
-            color: rgb(24, 24, 228);
+            margin-top: 2em;
         }
     </style>
 </head>
@@ -20,6 +21,10 @@
         / 12 mois = {{ declaration.heures_par_semaine }} x {{ declaration.semaines_par_an }} / 12
         <br />= {{ calculation.baseHours }} heures/mois</p>
 
+    {{#if declaration.heures_supplementaires}}
+    <p class="section">Heures supplémentaires</p>
+    <p>{{ declaration.heures_supplementaires }} heures</p>
+    {{/if}}
 
     <p class="section">Nombre de jours d'activité:</p>
     <p>(nombre de jours de garde par semaine x nombre de semaines de garde programmées dans l'année)
@@ -31,7 +36,7 @@
     <p>{{ declaration.jours_conges_payes_mois }} jours</p>
 
     <p class="section">Salaire net total (hors indemnités entretien):</p>
-    <p>{{ calculation.baseHours }} x {{ declaration.taux_horaire }} €/h =
+    <p>{{ calculation.fmtTotalHours }} x {{ declaration.taux_horaire }} €/h =
         {{ calculation.fmtNetSalary }} €</p>
 
     <p class="section">Frais d'entretien</p>

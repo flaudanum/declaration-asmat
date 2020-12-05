@@ -5,6 +5,7 @@ export interface Declaration {
   semaines_par_an: number;
   jours_par_semaine: number;
   heures_par_semaine: number;
+  heures_supplementaires?: number;
   // Nombre de jours de congés payés pris dans le mois
   jours_conges_payes_mois: number;
   // Euros / heure

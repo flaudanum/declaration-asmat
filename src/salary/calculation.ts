@@ -18,10 +18,11 @@ export const calculateSalary = (data: Declaration) => {
   const hourlyRate: number = data.taux_horaire;
   const childCareDaysInMonth: number = data.jours_accueil_mois;
   const dailyMaintenanceExpenses: number = data.frais_entretien_journaliers;
+  const extraHours: number = data.heures_supplementaires ?? 0;
 
   // Calculs
   const baseHours = (hoursPerWeek * numberOfWeeks) / monthPerYear;
-  const netSalary = baseHours * hourlyRate;
+  const netSalary = (baseHours + extraHours) * hourlyRate;
   const maintenanceExpenses = childCareDaysInMonth * dailyMaintenanceExpenses;
 
   const result: CalculationResult = {

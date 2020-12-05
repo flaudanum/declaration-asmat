@@ -14,8 +14,12 @@ export const renderPaySlip = (
     encoding: 'utf8'
   });
   const hbsTemplate = Handlebars.compile(htmlTemplate);
+  // Extra hours if any
+  const extraHours = declaration.heures_supplementaires ?? 0;
+
   const calculation = {
     ...result,
+    fmtTotalHours: result.baseHours + extraHours,
     fmtNetSalary: result.netSalary.toFixed(2),
     fmtMaintenanceExpenses: result.maintenanceExpenses.toFixed(2),
     fmtTotalIncome: result.totalIncome.toFixed(2)
