@@ -2,8 +2,12 @@
   "name": "pajemploi",
   "version": "0.0.0",
   "description": "Simplifier le calcul du salaire de l'assistante maternelle et déclaration Pajemploi",
-  "main": "app.js",
+  "main": "./dist/app.js",
+  "bin": {
+    "pajemploi": "./dist/app.js"
+  },
   "scripts": {
+    "start": "node ./dist/app.js",
     "test": "jest --coverage",
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/**/*.hbs src/**/*.css dist/",
